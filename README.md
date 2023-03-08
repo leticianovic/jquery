@@ -1,22 +1,41 @@
 # Iniciando com JQuery
 - Um exemplo simples com jquery, é abrir o console e digitar:
+
+
 `jQuery('body').html('<h1>Hello World com JQuery!</h1>')`
 
-- Exemplos 
-$('.featured-item:first h4').start('<span class="badge bg-secondary">Novo</span>');
-$('.featured-item:first h4').html('<span class="badge bg-secondary">Novo</span>');
+- Exemplos:
 
-$('.featured-item:first h4').addClass('active');
-$('.featured-item:first h4').removeClass('active');
-$('.featured-item:first h4').toggleClass('active');
 
-$('.featured-item:first h4').hide();
-$('.featured-item:first h4').show();
+`$('.featured-item:first h4').start('<span class="badge bg-secondary">Novo</span>');`
 
-$('.featured-item:first h4').fadeIn(2000);
-$('.featured-item:first h4').fadeOut(4000);
 
-$('.featured-item:first h4').css('color', '#00FA9A');
+`$('.featured-item:first h4').html('<span class="badge bg-secondary">Novo</span>');`
+
+
+`$('.featured-item:first h4').addClass('active');`
+
+
+`$('.featured-item:first h4').removeClass('active');`
+
+
+`$('.featured-item:first h4').toggleClass('active');`
+
+
+`$('.featured-item:first h4').hide();`
+
+
+`$('.featured-item:first h4').show();`
+
+
+`$('.featured-item:first h4').fadeIn(2000);`
+
+
+`$('.featured-item:first h4').fadeOut(4000);`
+
+
+
+`$('.featured-item:first h4').css('color', '#00FA9A');`
 
 - Evento: quando clicar faça algo
 
@@ -46,3 +65,18 @@ $('.featured-item h4').click(function(){
 
  ```
 
+## Animaçoes
+- Oculta um elemento 
+  `.hide()`
+
+- Mostra um elemento
+  `.show()`
+
+- Aumenta a transparência do elemento até que se torne invísivel 
+  `.fadeOut()`
+
+- Faz com que o elemento tenha sua opacidade aumentada até se tornar vísivel
+  `.fadeIn()`
+
+- Proporciona a escolha de revelar e esconder conteúdos
+  `.toggle()`
