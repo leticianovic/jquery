@@ -40,5 +40,12 @@ $(document).ready(function(){
 
     })
     
+    /* 
+     * Callback
+     * Entendendo ações que começam ao término de outra
+    */
+    $('.featured-item:nth(1)').hide(2000, function(){
+        // este é o callback
+    })
 
 });
