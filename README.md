@@ -80,3 +80,60 @@ $('.featured-item h4').click(function(){
 
 - Proporciona a escolha de revelar e esconder conteúdos
   `.toggle()`
+
+- instancia jQuery e evita conflitos
+
+```
+
+jQuery(function($){
+
+    $('h4') // tag
+    $('.featured-item') // class
+    $('#featured') // id
+    $('h4,h6') // seletores compostos: para tags
+    $('div h4') // hierarquia
+
+    let titulos = $('h4')
+    
+    let items = $('.featured-item')
+    
+    let destaques = $('#featured')
+
+    titulos.first();
+});
+
+```
+
+- Manipulação de eventos
+
+```
+
+$('.featured-item a').on('click', function(event){
+      event.preventDefault();
+
+      alert('Produto esgotado');
+})
+
+ ```
+
+- Callback: Entendendo ações que começam ao término de outra
+
+ ```
+  $('.featured-item:nth(1)')
+        .hide(2000, function(){
+            // este é o callback
+            console.log($(this).find('h4').text() + ' esgotado');
+        })
+        .show(2000, function(){
+            console.log($(this).find('h4').text() + ' em estoque');
+        })
+ ```
+
+- Animações
+
+ ```
+  $('.featured-item:nth(2)')
+    .toggle(2000)
+    .toggle(2000)
+
+ ```

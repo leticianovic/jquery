@@ -1,21 +1,3 @@
-// instancia jQuery e evita conflitos
-/* jQuery(function($){
-
-    $('h4') // tag
-    $('.featured-item') // class
-    $('#featured') // id
-    $('h4,h6') // seletores compostos: para tags
-    $('div h4') // hierarquia
-
-    let titulos = $('h4')
-    
-    let items = $('.featured-item')
-    
-    let destaques = $('#featured')
-
-    titulos.first();
-}); */
-
 $(document).ready(function(){
     $('.owl-carousel').owlCarousel();
 
@@ -32,31 +14,80 @@ $(document).ready(function(){
         });
     });
     
-    // Manipulação de eventos
-    $('.featured-item a').on('click', function(event){
-        event.preventDefault();
-
-        alert('Produto esgotado');
-
-    })
     
-    /* 
-     * Callback
-     * Entendendo ações que começam ao término de outra
-    */
-    $('.featured-item:nth(1)')
-        .hide(2000, function(){
-            // este é o callback
-            console.log($(this).find('h4').text() + ' esgotado');
-        })
-        .show(2000, function(){
-            console.log($(this).find('h4').text() + ' em estoque');
-        })
 
     /*
-     * Animações
+     * Ouvinte de eventos .nav-modal-open
     */
-    $('.featured-item:nth(2)')
-    .toggle(2000)
-    .toggle(2000)
+    $('.nav-modal-open').on('click', function(e){
+
+        e.preventDefault();
+  
+        let elem = $(this).attr('rel')
+  
+        $('.modal-body').html($('#'+elem).html())
+        
+        $('.modal-header h5.modal-title').html($(this).text())
+  
+        let myModal = new bootstrap.Modal($('#modalId'))
+  
+        myModal.show()
+    })
+
+     /*
+    * TODO: incrementar a validação
+    * - checar se o nome é válido (mais de 2 caracteres)
+    * - checar se o email é válido com ao menos um "@" e "."
+    * - checar se o cpf é válido com regex
+    */
+    function validate( elem ){
+       if( elem.val() == '') {
+
+          console.log('o campo de '+ elem.attr('name') + ' é obrigatório')
+
+          elem.parent().find('.text-muted').show()
+
+          elem.addClass('invalid')
+
+          return false
+       } else {
+          elem.parent().find('.text-muted').hide()
+          elem.removeClass('invalid')
+       }
+    }
+  
+    $('body').on('submit', '.modal-body .form', function(e){
+  
+        e.preventDefault()
+  
+        const inputName = $('#nome')
+        const inputEmail = $('#email')
+        const inputCpf = $('#cpf')
+  
+        validate(inputName)
+        validate(inputEmail)
+        validate(inputCpf)
+
+        if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid')){
+           console.log('verificar campos obrigatórios')
+           return false
+        } else {
+           $(this).submit()  
+        }
+  
+    })
+  
+    $('body').on('blur', '#nome', function(){
+        validate($(this))
+    })
+  
+    $('body').on('blur', '#email', function(){
+        validate($(this))
+    })
+
+    $('body').on('blur', '#cpf', function(){
+        validate($(this))
+    })
+  
+     
 });
