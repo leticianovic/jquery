@@ -34,49 +34,52 @@ $(document).ready(function(){
         myModal.show()
     })
 
-     /*
-    * TODO: incrementar a validação
-    * - checar se o nome é válido (mais de 2 caracteres)
-    * - checar se o email é válido com ao menos um "@" e "."
-    * - checar se o cpf é válido com regex
+    /*
+     * TODO: incrementar a validação
+     * - checar se o nome é válido (mais de 2 caracteres)
+     * - checar se o email é válido com ao menos um "@" e "."
+     * - checar se o cpf é válido com regex
     */
-    function validate( elem ){
-       if( elem.val() == '') {
 
-          console.log('o campo de '+ elem.attr('name') + ' é obrigatório')
+    // Irá verificar se caso os campos estejam vazios irá retorar campo inválido
+    function validate(elem){
+        if (elem.val() == ''){
+            
+            console.log('O campo ' + elem.attr('name') + ' é obrigatório')
 
-          elem.parent().find('.text-muted').show()
+            elem.addClass('invalid')
 
-          elem.addClass('invalid')
-
-          return false
-       } else {
-          elem.parent().find('.text-muted').hide()
-          elem.removeClass('invalid')
-       }
+            return false
+        }
+        else {
+            elem.removeClass('invalid')
+        } 
     }
-  
-    $('body').on('submit', '.modal-body .form', function(e){
-  
+
+    // Serão validos os campos de nome, email e CPF
+    $('.form').on('submit', function(e){
         e.preventDefault()
-  
+
         const inputName = $('#nome')
         const inputEmail = $('#email')
         const inputCpf = $('#cpf')
-  
+
         validate(inputName)
         validate(inputEmail)
         validate(inputCpf)
 
-        if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid')){
-           console.log('verificar campos obrigatórios')
-           return false
-        } else {
-           $(this).submit()  
+        if (inputName.hasClass('invalid') || inputEmail.hasClass('invalid') || inputCpf.hasClass('invalid')){
+            
+            console.log('Os campos são obrigatórios!')
+
+            return false
         }
-  
+        else {
+            $(this).submit()
+        }
     })
-  
+
+    // Validar caso tire o campo de foco
     $('body').on('blur', '#nome', function(){
         validate($(this))
     })
@@ -87,7 +90,7 @@ $(document).ready(function(){
 
     $('body').on('blur', '#cpf', function(){
         validate($(this))
-    })
-  
+        $(this).mask('000.000.000-00');
+     })
      
 });

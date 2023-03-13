@@ -597,9 +597,6 @@ a {
 	background-color: #3a8bcd;
 }
 
-
-
-
 /* Contact Page Style */
 .contact-page {
 	margin-top: 50px;
@@ -669,9 +666,16 @@ a {
 	border: none;
 }
 
+.invalid {
+	border-color: #F00;
+}
+
+.invalid-name {
+	border-color: #F00;
+}
+
 /* Responsive Style */
 @media (max-width: 991px) {
-
 	.banner {
 		border-top: none;
 		margin-top: 0px;
@@ -723,11 +727,9 @@ a {
 	.contact-page {
 		margin-top: 0px;
 	}
-
 }
 
 @media (max-width: 767px) {
-
 	.subscribe-form .main-content form input.button {
 		margin-top: 20px;
 	}
@@ -735,5 +737,4 @@ a {
 		margin-top: 15px;
 		text-align: left;
 	} 
-
 }
