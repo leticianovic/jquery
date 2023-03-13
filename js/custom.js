@@ -13,12 +13,8 @@ $(document).ready(function(){
             'font-weight': '100'
         });
     });
-    
-    
 
-    /*
-     * Ouvinte de eventos .nav-modal-open
-    */
+    /* Ouvinte de eventos .nav-modal-open */
     $('.nav-modal-open').on('click', function(e){
 
         e.preventDefault();
@@ -34,26 +30,36 @@ $(document).ready(function(){
         myModal.show()
     })
 
-     /*
-    * TODO: incrementar a validação
-    * - checar se o nome é válido (mais de 2 caracteres)
-    * - checar se o email é válido com ao menos um "@" e "."
-    * - checar se o cpf é válido com regex
+    /*
+     * TODO: incrementar a validação
+     * - checar se o nome é válido (mais de 2 caracteres)
+     * - checar se o email é válido com ao menos um "@" e "."
+     * - checar se o cpf é válido com regex
     */
-    function validate( elem ){
-       if( elem.val() == '') {
+    function validate(elem){
+        if(elem.val() == '') {
 
-          console.log('o campo de '+ elem.attr('name') + ' é obrigatório')
+            console.log('o campo de '+ elem.attr('name') + ' é obrigatório!')
 
-          elem.parent().find('.text-muted').show()
+            elem.parent().find('.text-muted').show()
 
-          elem.addClass('invalid')
+            elem.addClass('invalid')
 
-          return false
-       } else {
-          elem.parent().find('.text-muted').hide()
-          elem.removeClass('invalid')
-       }
+            return false
+        } 
+        else if (elem.val().lenght <= 2){
+            console.log('o campo de '+ elem.attr('name') + ' precisa conter a partir de 3 caracteres!')
+
+            elem.parent().find('.text-muted').show()
+
+            elem.addClass('invalid')
+
+            return false
+        }
+        else {
+            elem.parent().find('.text-muted').hide()
+            elem.removeClass('invalid')
+        }
     }
   
     $('body').on('submit', '.modal-body .form', function(e){
@@ -62,11 +68,11 @@ $(document).ready(function(){
   
         const inputName = $('#nome')
         const inputEmail = $('#email')
-        const inputCpf = $('#cpf')
+        //const inputCpf = $('#cpf')
   
         validate(inputName)
         validate(inputEmail)
-        validate(inputCpf)
+        //validate(inputCpf)
 
         if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid')){
            console.log('verificar campos obrigatórios')
