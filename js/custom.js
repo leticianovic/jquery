@@ -53,7 +53,32 @@ $(document).ready(function(){
         }
         else {
             elem.removeClass('invalid')
-        } 
+        }
+    }
+
+    function validateNome(nome){
+        if(nome.val() <= 2){
+            console.log('O campo de nome deve conter ao menos 3 caracteres')
+
+            nome.addClass('invalid')
+
+            return false
+        }
+        else {
+            nome.removeClass('invalid')
+        }
+    }
+
+    function validateEmail(email) {
+        user = email.val().substr(0, email.val().indexOf("@"));
+        domain = email.val().substr(email.val().indexOf("@")+ 1, email.val().length);
+        
+        if ((user.length >= 3) && (domain.length >= 3) && (user.search("@") == -1) && (domain.search("@") == -1) && (user.search(" ") == -1) && (domain.search(" ") == -1) && (domain.search(".") != -1) && (domain.indexOf(".") >= 1) && (domain.lastIndexOf(".") < domain.length - 1)){
+            email.removeClass('invalid')
+        }
+        else {
+            console.log('O campo de email deve conter um "@" e ao menos 1 "."')
+        }
     }
 
     // Serão validos os campos de nome, email e CPF
@@ -63,6 +88,10 @@ $(document).ready(function(){
         const inputName = $('#nome')
         const inputEmail = $('#email')
         const inputCpf = $('#cpf')
+
+        validateNome(inputName)
+        
+        validateEmail(inputEmail)
 
         validate(inputName)
         validate(inputEmail)
@@ -82,10 +111,12 @@ $(document).ready(function(){
     // Validar caso tire o campo de foco
     $('body').on('blur', '#nome', function(){
         validate($(this))
+        validateNome($(this))
     })
   
     $('body').on('blur', '#email', function(){
         validate($(this))
+        validateEmail($(this))
     })
 
     $('body').on('blur', '#cpf', function(){

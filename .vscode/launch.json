@@ -9,7 +9,8 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             //"url": "http://localhost:8080", 
-            "url": "C:/Users/User/Desktop/curso/jquery/index.html",
+            //"url": "C:/Users/User/Desktop/curso/jquery/index.html",
+            "url": "C:/Users/Leticia/Desktop/dev/projetos/jquery/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
