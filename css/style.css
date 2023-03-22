@@ -670,8 +670,8 @@ a {
 	border-color: #F00;
 }
 
-.invalid-name {
-	border-color: #F00;
+.text-muted {
+	display: none;
 }
 
 /* Responsive Style */

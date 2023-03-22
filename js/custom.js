@@ -13,12 +13,8 @@ $(document).ready(function(){
             'font-weight': '100'
         });
     });
-    
-    
 
-    /*
-     * Ouvinte de eventos .nav-modal-open
-    */
+    /* Ouvinte de eventos .nav-modal-open */
     $('.nav-modal-open').on('click', function(e){
 
         e.preventDefault();
@@ -47,11 +43,15 @@ $(document).ready(function(){
             
             console.log('O campo ' + elem.attr('name') + ' é obrigatório')
 
+            elem.parent().find('.text-muted').show()
+
             elem.addClass('invalid')
 
             return false
         }
         else {
+            elem.parent().find('.text-muted').hide()
+
             elem.removeClass('invalid')
         }
     }
@@ -78,6 +78,10 @@ $(document).ready(function(){
         }
         else {
             console.log('O campo de email deve conter um "@" e ao menos 1 "."')
+
+            email.addClass('invalid')
+
+            return false
         }
     }
 
