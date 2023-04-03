@@ -86,7 +86,7 @@ $(document).ready(function(){
     }
 
     // Serão validos os campos de nome, email e CPF
-    $('body').on('submit', '.modal-body .form', function(e){
+    $('.form').on('submit', function(e){
         e.preventDefault()
 
         const inputName = $('#nome')
@@ -112,17 +112,17 @@ $(document).ready(function(){
     })
 
     // Validar caso tire o campo de foco
-    $('body').on('blur', '#nome', function(){
+    $('.form').on('blur', '#nome', function(){
         validate($(this))
         validateNome($(this))
     })
   
-    $('body').on('blur', '#email', function(){
+    $('.form').on('blur', '#email', function(){
         validate($(this))
         validateEmail($(this))
     })
 
-    $('body').on('blur', '#cpf', function(){
+    $('.form').on('blur', '#cpf', function(){
         validate($(this))
         $(this).mask('000.000.000-00');
      })
