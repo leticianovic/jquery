@@ -86,22 +86,21 @@ $(document).ready(function(){
     }
 
     // Serão validos os campos de nome, email e CPF
-    $('.form').on('submit', function(e){
+    $('body').on('submit', '.modal-body .form', function(e){
         e.preventDefault()
 
         const inputName = $('#nome')
         const inputEmail = $('#email')
         const inputCpf = $('#cpf')
 
-        validateNome(inputName)
-        
-        validateEmail(inputEmail)
-
         validate(inputName)
         validate(inputEmail)
         validate(inputCpf)
 
-        if (inputName.hasClass('invalid') || inputEmail.hasClass('invalid') || inputCpf.hasClass('invalid')){
+        validateNome(inputName)
+        validateEmail(inputEmail)
+
+        if (inputEmail.hasClass('invalid') || inputName.hasClass('invalid') || inputCpf.hasClass('invalid')){
             
             console.log('Os campos são obrigatórios!')
 
