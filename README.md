@@ -137,3 +137,6 @@ $('.featured-item a').on('click', function(event){
     .toggle(2000)
 
  ```
+
+- Plugins
+jQuery Mask https://igorescobar.github.io/jQuery-Mask-Plugin
