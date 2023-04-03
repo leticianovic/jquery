@@ -91,16 +91,16 @@ $(document).ready(function(){
 
         const inputName = $('#nome')
         const inputEmail = $('#email')
-        const inputCpf = $('#cpf')
+        const inputTelefone = $('#telefone')
 
         validate(inputName)
         validate(inputEmail)
-        validate(inputCpf)
+        validate(inputTelefone)
 
         validateNome(inputName)
         validateEmail(inputEmail)
 
-        if (inputEmail.hasClass('invalid') || inputName.hasClass('invalid') || inputCpf.hasClass('invalid')){
+        if (inputEmail.hasClass('invalid') || inputName.hasClass('invalid') || inputTelefone.hasClass('invalid')){
             
             console.log('Os campos são obrigatórios!')
 
@@ -122,9 +122,9 @@ $(document).ready(function(){
         validateEmail($(this))
     })
 
-    $('body').on('blur', '#cpf', function(){
+    $('body').on('blur', '#telefone', function(){
         validate($(this))
-        $(this).mask('000.000.000-00');
+        $(this).mask('(00) 00000-0000');
      })
      
 });

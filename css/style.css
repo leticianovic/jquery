@@ -674,6 +674,10 @@ a {
 	display: none;
 }
 
+.Whatsapp {
+	margin-top: 20px;
+}
+
 /* Responsive Style */
 @media (max-width: 991px) {
 	.banner {
