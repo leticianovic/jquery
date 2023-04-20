@@ -107,7 +107,7 @@ $(document).ready(function(){
             return false
         }
         else {
-            $(this).submit()
+            return true
         }
     })
 
