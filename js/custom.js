@@ -107,7 +107,7 @@ $(document).ready(function(){
             return false
         }
         else {
-            return true
+            return true // função submit não funcionou entao foi trocado.
         }
     })
 
